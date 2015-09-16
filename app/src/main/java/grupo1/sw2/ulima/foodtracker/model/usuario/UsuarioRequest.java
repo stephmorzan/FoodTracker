@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grupo1.sw2.ulima.foodtracker.model.usuario;
 
 
@@ -13,17 +8,17 @@ public class UsuarioRequest implements Serializable{
     private String nombre;
     private String email;
     private String usuario;
-    private String contraseña;
+    private String pass;
     
     public UsuarioRequest() {
     
     }
 
-    public UsuarioRequest(String nombre, String email, String usuario, String contraseña) {
+    public UsuarioRequest(String nombre, String email, String usuario, String pass) {
         this.nombre = nombre;
         this.email = email;
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.pass = pass;
     }
 
     public String getUsuario() {
@@ -34,12 +29,12 @@ public class UsuarioRequest implements Serializable{
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPass() {
+        return pass;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getNombre() {
