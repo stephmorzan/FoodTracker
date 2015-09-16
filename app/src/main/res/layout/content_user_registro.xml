@@ -10,15 +10,23 @@
     tools:showIn="@layout/activity_user_registro"
     tools:context=".UserRegistroActivity"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:background="@color/ftc_background">
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/iviLogo"/>
 
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:hint="Nombre"
         android:ems="15"
+        android:background="@color/ftc_bckgr_editText"
+        android:layout_marginTop="30dp"
         android:id="@+id/eteNombre"/>
 
     <EditText
@@ -27,13 +35,17 @@
         android:hint="Correo"
         android:inputType="textEmailAddress"
         android:ems="15"
-        android:id="@+id/eteCorreo"/>
+        android:layout_marginTop="20dp"
+        android:background="@color/ftc_bckgr_editText"
+        android:id="@+id/eteCorreo" />
 
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:hint="Usuario"
         android:ems="15"
+        android:layout_marginTop="20dp"
+        android:background="@color/ftc_bckgr_editText"
         android:id="@+id/eteUser"/>
 
     <EditText
@@ -42,7 +54,16 @@
         android:inputType="textPassword"
         android:hint="Contraseña"
         android:ems="15"
-        android:id="@+id/etePassword" />
+        android:background="@color/ftc_bckgr_editText"
+        android:layout_marginTop="20dp"
+        android:id="@+id/etePassword"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        android:id="@+id/butRegistrar"
+        android:layout_marginTop="40dp"/>
 
 
 </LinearLayout>

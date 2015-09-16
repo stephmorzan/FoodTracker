@@ -9,8 +9,16 @@ import android.view.View;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class UserRegistroActivity extends AppCompatActivity, Activity {
+public class UserRegistroActivity extends AppCompatActivity implements View.OnClickListener{
+
+    EditText eteNombre;
+    EditText eteCorreo;
+    EditText eteUser;
+    EditText etePassword;
+    Button butRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,15 +27,13 @@ public class UserRegistroActivity extends AppCompatActivity, Activity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        eteNombre = (EditText) findViewById(R.id.eteNombre);
+        eteCorreo = (EditText)findViewById(R.id.eteCorreo);
+        eteUser = (EditText)findViewById(R.id.eteUser);
+        etePassword = (EditText) findViewById(R.id.etePassword);
+        butRegistrar = (Button)findViewById(R.id.butRegistrar);
 
+        butRegistrar.setOnClickListener(this);
 
     }
 
@@ -51,5 +57,15 @@ public class UserRegistroActivity extends AppCompatActivity, Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String nombre = eteNombre.getText().toString();
+        String correo = eteCorreo.getText().toString();
+        String user = eteUser.getText().toString();
+        String password = etePassword.getText().toString();
+
+
     }
 }
