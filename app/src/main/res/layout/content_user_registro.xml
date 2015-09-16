@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
+        android:src="@drawable/miniLogo"
         android:id="@+id/iviLogo"/>
 
     <EditText
@@ -63,7 +64,9 @@
         android:layout_height="wrap_content"
         android:text="Crear"
         android:id="@+id/butRegistrar"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:background="@color/ftc_background"
+        android:textColor="@color/ftc_bckgr_editText"/>
 
 
 </LinearLayout>
