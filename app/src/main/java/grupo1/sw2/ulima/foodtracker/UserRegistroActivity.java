@@ -1,5 +1,6 @@
 package grupo1.sw2.ulima.foodtracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,8 +12,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class UserRegistroActivity extends AppCompatActivity implements View.OnClickListener{
+import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
+import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTruckConnector;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTruckService;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+
+public class UserRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText eteNombre;
     EditText eteCorreo;
@@ -28,10 +38,10 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
         setSupportActionBar(toolbar);
 
         eteNombre = (EditText) findViewById(R.id.eteNombre);
-        eteCorreo = (EditText)findViewById(R.id.eteCorreo);
-        eteUser = (EditText)findViewById(R.id.eteUser);
+        eteCorreo = (EditText) findViewById(R.id.eteCorreo);
+        eteUser = (EditText) findViewById(R.id.eteUser);
         etePassword = (EditText) findViewById(R.id.etePassword);
-        butRegistrar = (Button)findViewById(R.id.butRegistrar);
+        butRegistrar = (Button) findViewById(R.id.butRegistrar);
 
         butRegistrar.setOnClickListener(this);
 
@@ -66,6 +76,29 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
         String user = eteUser.getText().toString();
         String password = etePassword.getText().toString();
 
+        final UsuarioRequest usuarioRequest = new UsuarioRequest(nombre, correo, user, password);
 
+        FoodTruckService connector = FoodTruckConnector.getConnector();
+
+        Call<UsuarioResponse> registrar = connector.registrar(usuarioRequest);
+
+        registrar.enqueue(new Callback<UsuarioResponse>() {
+            @Override
+            public void onResponse(Response<UsuarioResponse> response) {
+                if (response.body().getMsgError() != null) {
+                    Toast.makeText(UserRegistroActivity.this, response.body().getMsgError(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent();
+                    intent.setClass(UserRegistroActivity.this, InicioActivity.class);
+                    intent.putExtra("usuario", usuarioRequest);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(UserRegistroActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
