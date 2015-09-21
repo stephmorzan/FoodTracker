@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import butterknife.Bind;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTruckConnector;
@@ -24,11 +25,11 @@ import retrofit.Response;
 
 public class UserRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText eteNombre;
-    EditText eteCorreo;
-    EditText eteUser;
-    EditText etePassword;
-    Button butRegistrar;
+    @Bind(R.id.eteNombre)EditText eteNombre;
+    @Bind(R.id.eteCorreo)EditText eteCorreo;
+    @Bind(R.id.eteUser)EditText eteUser;
+    @Bind(R.id.etePassword)EditText etePassword;
+    @Bind(R.id.butRegistrar)Button butRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +37,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_user_registro);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        eteNombre = (EditText) findViewById(R.id.eteNombre);
-        eteCorreo = (EditText) findViewById(R.id.eteCorreo);
-        eteUser = (EditText) findViewById(R.id.eteUser);
-        etePassword = (EditText) findViewById(R.id.etePassword);
-        butRegistrar = (Button) findViewById(R.id.butRegistrar);
+        
 
         butRegistrar.setOnClickListener(this);
 
