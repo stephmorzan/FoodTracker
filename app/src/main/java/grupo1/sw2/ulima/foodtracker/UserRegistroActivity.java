@@ -32,6 +32,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
     @Bind(R.id.etePassword)EditText etePassword;
     @Bind(R.id.butRegistrar)Button butRegistrar;
     @Bind(R.id.toolbar) Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
