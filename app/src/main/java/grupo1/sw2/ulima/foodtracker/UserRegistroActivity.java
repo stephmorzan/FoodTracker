@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTruckConnector;
@@ -30,12 +31,12 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
     @Bind(R.id.eteUser)EditText eteUser;
     @Bind(R.id.etePassword)EditText etePassword;
     @Bind(R.id.butRegistrar)Button butRegistrar;
-
+    @Bind(R.id.toolbar) Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registro);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         
 
