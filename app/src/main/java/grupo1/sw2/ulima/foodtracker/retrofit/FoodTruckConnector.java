@@ -10,7 +10,7 @@ public class FoodTruckConnector {
 
     public static FoodTruckService getConnector(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("localhost")
+                .baseUrl("http://foodtracker-backend.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
