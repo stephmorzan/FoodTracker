@@ -26,10 +26,10 @@ import retrofit.Response;
 
 public class UserRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Bind(R.id.eteNombre)EditText eteNombre;
-    @Bind(R.id.eteCorreo)EditText eteCorreo;
-    @Bind(R.id.eteUser)EditText eteUser;
-    @Bind(R.id.etePassword)EditText etePassword;
+    @Bind(R.id.eteNombre)com.rey.material.widget.EditText eteNombre;
+    @Bind(R.id.eteCorreo)com.rey.material.widget.EditText eteCorreo;
+    @Bind(R.id.eteUser)com.rey.material.widget.EditText eteUser;
+    @Bind(R.id.etePassword)com.rey.material.widget.EditText etePassword;
     @Bind(R.id.butRegistrar)Button butRegistrar;
     @Bind(R.id.toolbar) Toolbar toolbar;
 
@@ -37,9 +37,11 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registro);
+
+
+
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        
 
         butRegistrar.setOnClickListener(this);
 
