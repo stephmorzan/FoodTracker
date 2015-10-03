@@ -11,4 +11,7 @@ public interface FoodTruckService {
     @POST("/usuario/registro")
     Call<UsuarioResponse> registrar(@Body UsuarioRequest usuarioRequest);
     //es el llamado a un servicio. De la url /usuario/registro, se envía un UsuarioRequest para recibir un UsuarioResponse.
+
+    @POST("/usuario/login")
+    Call<UsuarioResponse>registrar();
 }
