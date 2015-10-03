@@ -31,6 +31,7 @@
             android:id="@+id/eteUserWrapperLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp">
 
             <EditText
@@ -47,7 +48,8 @@
             android:id="@+id/etePasswordWrapperLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp">
 
             <EditText
                 android:id="@+id/etePasswordLogin"
@@ -63,6 +65,7 @@
             android:id="@+id/butLogin"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="16dp"
             android:text="Iniciar sesión"
             android:textColor="@color/ftc_bckgr_editText"

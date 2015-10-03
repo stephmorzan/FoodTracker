@@ -12,23 +12,26 @@
         android:weightSum="3"
         android:background="@color/ftc_background">
 
-        <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ibuCupones"
-            android:layout_weight="1"/>
+            android:id="@+id/iviCupones"
+            android:layout_weight="1"
+            android:src="@mipmap/cupones" />
 
-        <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ibuBuscar"
-            android:layout_weight="1"/>
+            android:id="@+id/iviBuscar"
+            android:layout_weight="1"
+            android:src="@mipmap/buscar" />
 
-        <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ibRanking"
-            android:layout_weight="1"/>
+            android:id="@+id/iviRanking"
+            android:layout_weight="1"
+            android:src="@mipmap/gusta" />
 
     </LinearLayout>
 </FrameLayout>
