@@ -7,15 +7,15 @@ public class UsuarioLoginRequest {
 
     private int idUsuario;
     private String usuario;
-    private String password;
+    private String pass;
 
     public UsuarioLoginRequest() {
     }
 
-    public UsuarioLoginRequest(int idUsuario, String usuario, String password) {
+    public UsuarioLoginRequest(int idUsuario, String usuario, String pass) {
         this.idUsuario = idUsuario;
         this.usuario = usuario;
-        this.password = password;
+        this.pass = pass;
     }
 
     public int getIdUsuario() {
@@ -34,11 +34,11 @@ public class UsuarioLoginRequest {
         this.usuario = usuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }
