@@ -37,19 +37,22 @@
         <ListView
             android:id="@+id/lviGustos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="3">
 
         </ListView>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@color/ftc_background">
 
             <com.dd.processbutton.iml.ActionProcessButton
                 android:id="@+id/butGuardarGustos"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="16dp"
                 android:text="Guardar"
                 android:textColor="@color/ftc_bckgr_editText"
