@@ -36,6 +36,11 @@
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".SeleccionarGustosActivity"
+            android:label="@string/title_activity_seleccionar_gustos"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

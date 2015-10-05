@@ -14,13 +14,13 @@ import android.widget.ImageView;
 
 import butterknife.Bind;
 
-public class ContenedorActivity extends AppCompatActivity {
+public class ContenedorActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Bind(R.id.toolbar)Toolbar toolbar;
     @Bind(R.id.claContenedor)CoordinatorLayout claContenedor;
-    @Bind(R.id.iviCupones)ImageView butCupones;
-    @Bind(R.id.iviBuscar)ImageView butBuscar;
-    @Bind(R.id.iviRanking)ImageView butRanking;
+    @Bind(R.id.iviCupones)ImageView iviCupones;
+    @Bind(R.id.iviBuscar)ImageView iviBuscar;
+    @Bind(R.id.iviRanking)ImageView iviRanking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,18 @@ public class ContenedorActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         //ft.replace(R.id.flaContenido, )
+
+        iviCupones.setOnClickListener(this);
+        iviBuscar.setOnClickListener(this);
+        iviRanking.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iviRanking:
+                String blah = "blah";
+            case R.id.iviBuscar:
+        }
+    }
 }

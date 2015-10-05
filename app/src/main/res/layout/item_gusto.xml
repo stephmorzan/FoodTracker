@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="13dp"
-    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="20dp"
     android:orientation="horizontal">
 
-    <RadioButton
+    <com.rey.material.widget.CheckBox
+        style="@style/Material.Drawable.CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -14,7 +15,9 @@
         android:paddingTop="15dp"
         android:text="Gusto 1"
         android:textSize="18sp"
-        android:id="@+id/rbuGusto" />
+        android:id="@+id/rbuGusto"
+        android:checked="false"
+        android:gravity="center_vertical"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -25,4 +28,6 @@
         android:layout_alignBottom="@id/rbuGusto"
         android:layout_alignTop="@id/rbuGusto"
         android:src="@mipmap/ic_launcher"/>
+
+
 </RelativeLayout>
