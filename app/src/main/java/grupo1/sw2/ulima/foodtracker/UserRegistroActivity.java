@@ -2,11 +2,9 @@ package grupo1.sw2.ulima.foodtracker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -18,8 +16,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
-import grupo1.sw2.ulima.foodtracker.retrofit.FoodTruckConnector;
-import grupo1.sw2.ulima.foodtracker.retrofit.FoodTruckService;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
@@ -32,10 +30,6 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
     @Bind(R.id.etePassword)EditText etePassword;
     @Bind(R.id.butRegistrar) ActionProcessButton butRegistrar;
     @Bind(R.id.toolbar) Toolbar toolbar;
-    /*@Bind(R.id.eteNombreWrapper)TextInputLayout eteNombreWrapper;
-    @Bind(R.id.eteCorreoWrapper)TextInputLayout eteCorreoWrapper;
-    @Bind(R.id.eteUserWrapper)TextInputLayout eteUserWrapper;
-    @Bind(R.id.etePasswordWrapper)TextInputLayout etePasswordWrapper;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +38,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
 
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Regístrate");
 
         butRegistrar.setOnClickListener(this);
         butRegistrar.setMode(ActionProcessButton.Mode.ENDLESS);
@@ -77,7 +72,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
 
         final UsuarioRequest usuarioRequest = new UsuarioRequest(nombre, correo, user, password);
 
-        FoodTruckService connector = FoodTruckConnector.getConnector();
+        FoodTrackerService connector = FoodTrackerConnector.getConnector();
 
         Call<UsuarioResponse> registrar = connector.registrar(usuarioRequest);
         butRegistrar.setProgress(50);

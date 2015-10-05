@@ -1,19 +1,17 @@
 package grupo1.sw2.ulima.foodtracker.retrofit;
 
-import com.google.gson.Gson;
-
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
 
-public class FoodTruckConnector {
+public class FoodTrackerConnector {
 
-    public static FoodTruckService getConnector(){
+    public static FoodTrackerService getConnector(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://foodtracker-backend.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        return retrofit.create(FoodTruckService.class);
+        return retrofit.create(FoodTrackerService.class);
     }
 }

@@ -1,5 +1,7 @@
 package grupo1.sw2.ulima.foodtracker.retrofit;
 
+import grupo1.sw2.ulima.foodtracker.model.foodtruck.FoodtruckRequest;
+import grupo1.sw2.ulima.foodtracker.model.foodtruck.FoodtruckResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioLoginRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
@@ -7,7 +9,7 @@ import retrofit.Call;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
-public interface FoodTruckService {
+public interface FoodTrackerService {
 
     @POST("/usuario/registro")
     Call<UsuarioResponse> registrar(@Body UsuarioRequest usuarioRequest);
@@ -18,5 +20,5 @@ public interface FoodTruckService {
     //es el llamado a un servicio.
 
     @POST("/foodtruck/login")
-    Call<UsuarioRequest>login();
+    Call<FoodtruckResponse>login(@Body FoodtruckRequest foodtruckRequest);
 }
