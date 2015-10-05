@@ -23,7 +23,7 @@ public class ContenedorActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        Fragment fragment;
+        Fragment fragment = BotonesFragment.newInstance();
     }
 
 }

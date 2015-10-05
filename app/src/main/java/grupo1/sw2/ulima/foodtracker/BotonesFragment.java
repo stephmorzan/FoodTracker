@@ -12,6 +12,7 @@ public class BotonesFragment extends Fragment {
 
 
     public static BotonesFragment newInstance() {
+
         return new BotonesFragment();
 
     }
@@ -20,6 +21,11 @@ public class BotonesFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
