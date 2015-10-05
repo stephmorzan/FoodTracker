@@ -21,6 +21,7 @@ import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
+import retrofit.Retrofit;
 
 public class UserRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 
