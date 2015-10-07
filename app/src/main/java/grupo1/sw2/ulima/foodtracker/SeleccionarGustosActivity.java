@@ -41,7 +41,7 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
             @Override
             public void onResponse(Response<GustosResponse> response) {
 
-                if (response.body().getMsgError() != null) {
+                /*if (response.body().getMsgError() != null) {
 
                     Toast.makeText(SeleccionarGustosActivity.this, response.body().getMsgError(), Toast.LENGTH_SHORT).show();
                 } else {
@@ -49,7 +49,7 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
                     intent.setClass(SeleccionarGustosActivity.this, ContenedorActivity.class);
                     intent.putExtra("usuario", usuarioLoginRequest);
                     startActivity(intent);
-                }
+                }*/
             }
 
             @Override
