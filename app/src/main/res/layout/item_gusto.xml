@@ -15,18 +15,19 @@
         android:paddingTop="15dp"
         android:text="Gusto 1"
         android:textSize="18sp"
-        android:id="@+id/rbuGusto"
+        android:id="@+id/cboGusto"
         android:checked="false"
         android:gravity="center_vertical"/>
 
     <ImageView
+        android:id="@+id/iviGusto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@id/rbuGusto"
-        android:layout_alignTop="@id/rbuGusto"
+        android:layout_alignBottom="@id/cboGusto"
+        android:layout_alignTop="@id/cboGusto"
         android:src="@mipmap/ic_launcher"/>
 
 

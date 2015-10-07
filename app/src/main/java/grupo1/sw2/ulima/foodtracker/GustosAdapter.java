@@ -5,9 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
 
 /**
@@ -41,15 +45,36 @@ public class GustosAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        ViewHolder viewHolder;
         if(convertView==null){
-            convertView = inflater.inflate(R.layout.item_gusto, null);
+            convertView = inflater.inflate(R.layout.item_gusto, parent);
+
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        }else{
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        //GustosResponse gusto = gustosResponses.get(position);
+        GustosResponse gusto = gustosResponses.get(position);
+        viewHolder.cboGusto.setText(gusto.getNombre());
+        Picasso.with(inflater.getContext()).load(gusto.getUrl()).into(viewHolder.iviGusto);
+
         //llamar el nombre del gusto. De acuerdo al nombre, colocar la imagen.
 
         return convertView;
     }
+
+    public class ViewHolder{
+        @Bind(R.id.cboGusto)com.rey.material.widget.CheckBox cboGusto;
+        @Bind(R.id.iviGusto) ImageView iviGusto;
+
+
+
+        public ViewHolder(View v) {
+            ButterKnife.bind(this,v);
+        }
+    }
+
 }
 
 
