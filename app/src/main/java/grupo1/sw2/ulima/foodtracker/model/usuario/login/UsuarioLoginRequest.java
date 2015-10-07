@@ -1,4 +1,4 @@
-package grupo1.sw2.ulima.foodtracker.model.usuario;
+package grupo1.sw2.ulima.foodtracker.model.usuario.login;
 
 /**
  * Created by stmorzan on 03/10/2015.

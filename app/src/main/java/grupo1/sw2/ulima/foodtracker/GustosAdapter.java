@@ -8,34 +8,34 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
-import grupo1.sw2.ulima.foodtracker.dto.Gusto;
+import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
 
 /**
  * Created by stmorzan on 05/10/2015.
  */
 public class GustosAdapter extends BaseAdapter{
 
-    private List<Gusto> gustos;
+    private List<GustosResponse> gustosResponses;
     private LayoutInflater inflater;
 
-    public GustosAdapter(List<Gusto> gustos, Context context){
-        this.gustos = gustos;
+    public GustosAdapter(List<GustosResponse> gustosResponses, Context context){
+        this.gustosResponses = gustosResponses;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return gustos.size();
+        return gustosResponses.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return gustos.get(position);
+        return gustosResponses.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return gustos.get(position).getId();
+        return gustosResponses.get(position).getIdCategoria();
     }
 
     @Override
@@ -45,7 +45,7 @@ public class GustosAdapter extends BaseAdapter{
             convertView = inflater.inflate(R.layout.item_gusto, null);
         }
 
-        Gusto gusto = gustos.get(position);
+        //GustosResponse gusto = gustosResponses.get(position);
         //llamar el nombre del gusto. De acuerdo al nombre, colocar la imagen.
 
         return convertView;

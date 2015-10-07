@@ -11,8 +11,14 @@ import android.widget.ListView;
 import com.rey.material.widget.Button;
 
 import butterknife.Bind;
+import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
 
-public class SeleccionarGustosActivity extends AppCompatActivity implements View.OnClickListener{
+public class SeleccionarGustosActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Bind(R.id.lviGustos)ListView lviGustos;
     @Bind(R.id.butGuardarGustos)Button butGuardarGustos;
@@ -25,6 +31,21 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
         toolbar.setTitle("Seleccionar gustos");
         toolbar.setTitleTextColor(R.color.colorPrimary);
         setSupportActionBar(toolbar);
+
+        FoodTrackerService connector = FoodTrackerConnector.getConnector();
+
+        Call<GustosResponse> mostrarGustos = connector.mostrarGustos();
+        mostrarGustos.enqueue(new Callback<GustosResponse>() {
+            @Override
+            public void onResponse(Response<GustosResponse> response) {
+
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
 
         butGuardarGustos.setOnClickListener(this);
     }
