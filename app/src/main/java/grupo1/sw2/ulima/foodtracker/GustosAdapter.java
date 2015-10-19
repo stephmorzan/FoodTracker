@@ -57,7 +57,7 @@ public class GustosAdapter extends BaseAdapter{
 
         GustosResponse gusto = gustosResponses.get(position);
         viewHolder.cboGusto.setText(gusto.getNombre());
-        Picasso.with(inflater.getContext()).load(gusto.getUrl()).into(viewHolder.iviGusto);
+        //with(inflater.getContext()).load(gusto.getUrl()).into(viewHolder.iviGusto);
 
         //llamar el nombre del gusto. De acuerdo al nombre, colocar la imagen.
 
