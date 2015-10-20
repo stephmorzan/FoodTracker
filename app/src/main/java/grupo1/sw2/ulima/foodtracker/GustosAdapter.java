@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import butterknife.Bind;
@@ -57,7 +59,7 @@ public class GustosAdapter extends BaseAdapter{
 
         GustosResponse gusto = gustosResponses.get(position);
         viewHolder.cboGusto.setText(gusto.getNombre());
-        //with(inflater.getContext()).load(gusto.getUrl()).into(viewHolder.iviGusto);
+        Picasso.with(inflater.getContext()).load(gusto.getUrl()).into(viewHolder.iviGusto);
 
         //llamar el nombre del gusto. De acuerdo al nombre, colocar la imagen.
 
