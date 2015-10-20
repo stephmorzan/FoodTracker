@@ -27,7 +27,7 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenedor);
 
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
         Fragment buscarFragment = BuscarFragment.newInstance();
         FragmentTransaction ft = getFragmentManager().beginTransaction();

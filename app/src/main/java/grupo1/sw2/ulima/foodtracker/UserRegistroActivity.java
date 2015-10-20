@@ -73,6 +73,11 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
 
         final UsuarioRequest usuarioRequest = new UsuarioRequest(nombre, correo, user, password);
 
+        /*Intent intent = new Intent();
+        intent.setClass(UserRegistroActivity.this, ContenedorActivity.class);
+        intent.putExtra("usuario", usuarioRequest);
+        startActivity(intent);*/
+
         FoodTrackerService connector = FoodTrackerConnector.getConnector();
 
         Call<UsuarioResponse> registrar = connector.registrar(usuarioRequest);
@@ -86,7 +91,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
                 } else {
                     butRegistrar.setProgress(100);
                     Intent intent = new Intent();
-                    intent.setClass(UserRegistroActivity.this, InicioActivity.class);
+                    intent.setClass(UserRegistroActivity.this, ContenedorActivity.class);
                     intent.putExtra("usuario", usuarioRequest);
                     startActivity(intent);
                 }
