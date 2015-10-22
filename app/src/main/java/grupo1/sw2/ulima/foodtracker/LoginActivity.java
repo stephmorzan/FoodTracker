@@ -14,7 +14,6 @@ import com.dd.processbutton.iml.ActionProcessButton;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.login.UsuarioLoginRequest;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;

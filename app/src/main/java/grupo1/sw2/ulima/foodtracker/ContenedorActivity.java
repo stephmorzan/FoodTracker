@@ -34,9 +34,9 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         ft.replace(R.id.flaContenido, buscarFragment);
         ft.commit();
 
-        iviCupones.setOnClickListener(this);
-        iviBuscar.setOnClickListener(this);
-        iviRanking.setOnClickListener(this);
+        //iviCupones.setOnClickListener(this);
+        //iviBuscar.setOnClickListener(this);
+        //iviRanking.setOnClickListener(this);
     }
 
     @Override
