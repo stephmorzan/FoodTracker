@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.fragments.BuscarFragment;
 import grupo1.sw2.ulima.foodtracker.fragments.CuponesFragment;
 import grupo1.sw2.ulima.foodtracker.fragments.RankingFragment;
@@ -26,17 +27,18 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenedor);
-
-        //setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
+        toolbar.setTitle("FoodTracker");
+        setSupportActionBar(toolbar);
 
         Fragment buscarFragment = BuscarFragment.newInstance();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.flaContenido, buscarFragment);
         ft.commit();
 
-        //iviCupones.setOnClickListener(this);
-        //iviBuscar.setOnClickListener(this);
-        //iviRanking.setOnClickListener(this);
+        iviCupones.setOnClickListener(this);
+        iviBuscar.setOnClickListener(this);
+        iviRanking.setOnClickListener(this);
     }
 
     @Override
@@ -44,17 +46,23 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         switch (v.getId()){
             case R.id.iviRanking:
+                toolbar.setTitle("Los mejores FoodTrucks");
                 Fragment rankingFragment = RankingFragment.newInstance();
                 ft.replace(R.id.flaContenido, rankingFragment);
                 ft.commit();
+                break;
             case R.id.iviBuscar:
+                toolbar.setTitle("FoodTracker");
                 Fragment buscarFragment = BuscarFragment.newInstance();
                 ft.replace(R.id.flaContenido, buscarFragment);
                 ft.commit();
+                break;
             case R.id.iviCupones:
+                toolbar.setTitle("Cupones de descuento");
                 Fragment cuponesFragment = CuponesFragment.newInstance();
                 ft.replace(R.id.flaContenido, cuponesFragment);
                 ft.commit();
+                break;
         }
 
     }

@@ -47,24 +47,6 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_registro, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void onClick(View v) {
         String nombre = eteNombre.getText().toString();
         String correo = eteCorreo.getText().toString();
@@ -76,7 +58,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
 
         Intent intent = new Intent();
         butRegistrar.setProgress(50);
-        intent.setClass(UserRegistroActivity.this, LoginActivity.class);
+        intent.setClass(UserRegistroActivity.this, ContenedorActivity.class);
         intent.putExtra("usuario", usuarioRequest);
         startActivity(intent);
 
