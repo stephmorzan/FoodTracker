@@ -9,38 +9,39 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import grupo1.sw2.ulima.foodtracker.model.gustos.GustosRequest;
+import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
 
 /**
  * Created by stmorzan on 05/10/2015.
  */
 public class GustosAdapter extends BaseAdapter{
 
-    private List<GustosRequest> gustosRequests;
+    private List<GustosResponse> gustosResponses;
     private LayoutInflater inflater;
 
-    public GustosAdapter(List<GustosRequest> gustosRequests, Context context){
-        this.gustosRequests = gustosRequests;
+    public GustosAdapter(List<GustosResponse> gustosResponses, Context context){
+        this.gustosResponses = gustosResponses;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return gustosRequests.size();
+        return gustosResponses.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return gustosRequests.get(position);
+        return gustosResponses.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return gustosRequests.get(position).getIdCategoria();
+        return gustosResponses.get(position).getId_Categoria();
     }
 
     @Override
@@ -56,9 +57,9 @@ public class GustosAdapter extends BaseAdapter{
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        GustosRequest gusto = gustosRequests.get(position);
+        GustosResponse gusto = gustosResponses.get(position);
         viewHolder.cboGusto.setText(gusto.getNombre());
-        Picasso.with(inflater.getContext()).load(gusto.getUrl()).into(viewHolder.iviGusto);
+        Picasso.with(inflater.getContext()).load(gusto.getFoto()).into(viewHolder.iviGusto);
 
         //llamar el nombre del gusto. De acuerdo al nombre, colocar la imagen.
 
@@ -66,10 +67,9 @@ public class GustosAdapter extends BaseAdapter{
     }
 
     public class ViewHolder{
+
         @Bind(R.id.cboGusto)com.rey.material.widget.CheckBox cboGusto;
         @Bind(R.id.iviGusto) ImageView iviGusto;
-
-
 
         public ViewHolder(View v) {
             ButterKnife.bind(this,v);

@@ -2,11 +2,7 @@ package grupo1.sw2.ulima.foodtracker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,8 +19,9 @@ import com.rey.material.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
-import grupo1.sw2.ulima.foodtracker.model.usuario.login.UsuarioLoginRequest;
+import grupo1.sw2.ulima.foodtracker.model.usuario.login.LoginRequest;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
 import retrofit.Call;
@@ -48,32 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
-        butFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
 
-                String usuario = loginResult.getAccessToken().getUserId();
-                String pass = loginResult.getAccessToken().getToken();
-
-                final UsuarioLoginRequest usuarioLoginRequest = new UsuarioLoginRequest(usuario, pass);
-
-                Intent intent = new Intent();
-                intent.setClass(LoginActivity.this, ContenedorActivity.class);
-                intent.putExtra("usuario", usuarioLoginRequest);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-
-            });
 
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
@@ -88,34 +60,75 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        String usuario = eteUserLogin.getText().toString();
-        String pass = etePasswordLogin.getText().toString();
 
-        FoodTrackerService connector = FoodTrackerConnector.getConnector();
+        switch (v.getId()){
+            case R.id.butLogin:
 
-        final UsuarioLoginRequest usuarioLoginRequest = new UsuarioLoginRequest(usuario, pass);
+                String usuario = eteUserLogin.getText().toString();
+                String pass = etePasswordLogin.getText().toString();
 
-        Call<UsuarioResponse> login = connector.login(usuarioLoginRequest);
-        login.enqueue(new Callback<UsuarioResponse>() {
-            @Override
-            public void onResponse(Response<UsuarioResponse> response) {
-                if (response.body().getMsgError() != null) {
-                    butLogin.setProgress(-1);
-                    Toast.makeText(LoginActivity.this, response.body().getMsgError(), Toast.LENGTH_SHORT).show();
-                } else {
-                    butLogin.setProgress(100);
-                    Intent intent = new Intent();
-                    intent.setClass(LoginActivity.this, ContenedorActivity.class);
-                    intent.putExtra("usuario", usuarioLoginRequest);
-                    startActivity(intent);
-                }
-            }
+                FoodTrackerService connector = FoodTrackerConnector.getConnector();
 
-            @Override
-            public void onFailure(Throwable t) {
-                Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                final LoginRequest loginRequest = new LoginRequest(usuario, pass);
+
+                Call<ClienteResponse> login = connector.login(loginRequest);
+                login.enqueue(new Callback<ClienteResponse>() {
+                    @Override
+                    public void onResponse(Response<ClienteResponse> response) {
+                        if (response.body() != null) {
+                            butLogin.setProgress(-1);
+                            Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            butLogin.setProgress(100);
+                            Intent intent = new Intent();
+                            intent.setClass(LoginActivity.this, ContenedorActivity.class);
+                            intent.putExtra("usuario", loginRequest);
+                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+                break;
+
+            case R.id.butFbLogin:
+
+                butFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+                        String usuario = loginResult.getAccessToken().getUserId();
+                        String pass = loginResult.getAccessToken().getToken();
+
+                        final LoginRequest loginRequest = new LoginRequest(usuario, pass);
+
+                        Intent intent = new Intent();
+                        intent.setClass(LoginActivity.this, ContenedorActivity.class);
+                        intent.putExtra("usuario", loginRequest);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+
+                    }
+
+                });
+
+                break;
+        }
+
+
 
     }
 

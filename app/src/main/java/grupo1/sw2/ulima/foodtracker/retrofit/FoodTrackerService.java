@@ -1,14 +1,15 @@
 package grupo1.sw2.ulima.foodtracker.retrofit;
 
-import grupo1.sw2.ulima.foodtracker.model.foodtruck.FoodtruckRequest;
-import grupo1.sw2.ulima.foodtracker.model.foodtruck.FoodtruckResponse;
-import grupo1.sw2.ulima.foodtracker.model.gustos.GustosRequest;
-import grupo1.sw2.ulima.foodtracker.model.usuario.GenericResponse;
-import grupo1.sw2.ulima.foodtracker.model.usuario.login.UsuarioLoginRequest;
+import java.util.List;
+
+import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
+import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
+import grupo1.sw2.ulima.foodtracker.model.usuario.login.LoginRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
 import retrofit.Call;
 import retrofit.http.Body;
+import retrofit.http.GET;
 import retrofit.http.POST;
 
 public interface FoodTrackerService {
@@ -18,12 +19,14 @@ public interface FoodTrackerService {
     //es el llamado a un servicio. De la url /usuario/registro, se envía un UsuarioRequest para recibir un UsuarioResponse.
 
     @POST("/usuario/login")
-    Call<UsuarioResponse>login(@Body UsuarioLoginRequest usuarioLoginRequest);
+    Call<ClienteResponse>login(@Body LoginRequest loginRequest);
     //es el llamado a un servicio.
 
-    @POST("/foodtruck/login")
-    Call<FoodtruckResponse>login(@Body FoodtruckRequest foodtruckRequest);
 
-    @POST("/usuario/seleccionarGustos")
-    Call<GenericResponse> seleccionarGustos(@Body GustosRequest gustosRequest);
+
+    @GET("/usuario/gustos")
+    Call<List<GustosResponse>> mostrarGustos();
+
+    @POST("/usuario/sendGustos")
+    Call<ClienteResponse> seleccionarGustos(@Body List<GustosResponse> gustosResponse);
 }

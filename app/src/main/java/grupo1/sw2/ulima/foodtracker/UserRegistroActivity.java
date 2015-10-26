@@ -74,15 +74,14 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
 
         final UsuarioRequest usuarioRequest = new UsuarioRequest(nombre, correo, user, password);
 
-
+        /*
         Intent intent = new Intent();
         butRegistrar.setProgress(50);
         intent.setClass(UserRegistroActivity.this, LoginActivity.class);
         intent.putExtra("usuario", usuarioRequest);
         startActivity(intent);
+        */
 
-
-        /*
         FoodTrackerService connector = FoodTrackerConnector.getConnector();
 
         Call<UsuarioResponse> registrar = connector.registrar(usuarioRequest);
@@ -106,6 +105,6 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
             public void onFailure(Throwable t) {
                 Toast.makeText(UserRegistroActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
     }
 }
