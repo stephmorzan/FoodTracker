@@ -6,11 +6,20 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dd.processbutton.iml.ActionProcessButton;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.rey.material.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,19 +36,54 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.eteUserLogin)EditText eteUserLogin;
     @Bind(R.id.etePasswordLogin)EditText etePasswordLogin;
     @Bind(R.id.butLogin)ActionProcessButton butLogin;
-    @Bind(R.id.toolbar)Toolbar toolbar;
+    @Bind(R.id.tviFtc)TextView tviFtc;
+    @Bind(R.id.tviRegistrar)TextView tviRegistrar;
+    @Bind(R.id.butFbLogin)LoginButton butFbLogin;
+
+    CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        butFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+                String usuario = loginResult.getAccessToken().getUserId();
+                String pass = loginResult.getAccessToken().getToken();
+
+                final UsuarioLoginRequest usuarioLoginRequest = new UsuarioLoginRequest(usuario, pass);
+
+                Intent intent = new Intent();
+                intent.setClass(LoginActivity.this, ContenedorActivity.class);
+                intent.putExtra("usuario", usuarioLoginRequest);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+
+            });
+
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-
-        setSupportActionBar(toolbar);
 
         butLogin.setOnClickListener(this);
         butLogin.setMode(ActionProcessButton.Mode.ENDLESS);
         butLogin.setProgress(0);
+
+        tviFtc.setOnClickListener(this);
+        tviRegistrar.setOnClickListener(this);
     }
 
     @Override
@@ -74,4 +118,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
+    }
+
+
 }

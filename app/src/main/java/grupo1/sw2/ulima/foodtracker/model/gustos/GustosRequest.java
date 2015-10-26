@@ -3,19 +3,19 @@ package grupo1.sw2.ulima.foodtracker.model.gustos;
 /**
  * Created by stmorzan on 05/10/2015.
  */
-public class GustosResponse {
+public class GustosRequest {
 
     private int idCategoria;
     private String nombre;
     private String url;
 
-    public GustosResponse(int idCategoria, String nombre, String url) {
+    public GustosRequest(int idCategoria, String nombre, String url) {
         this.idCategoria = idCategoria;
         this.nombre = nombre;
         this.url = url;
     }
 
-    public GustosResponse() {
+    public GustosRequest() {
     }
 
     public int getIdCategoria() {

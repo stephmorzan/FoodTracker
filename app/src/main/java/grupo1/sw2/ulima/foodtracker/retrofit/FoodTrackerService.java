@@ -2,13 +2,13 @@ package grupo1.sw2.ulima.foodtracker.retrofit;
 
 import grupo1.sw2.ulima.foodtracker.model.foodtruck.FoodtruckRequest;
 import grupo1.sw2.ulima.foodtracker.model.foodtruck.FoodtruckResponse;
-import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
+import grupo1.sw2.ulima.foodtracker.model.gustos.GustosRequest;
+import grupo1.sw2.ulima.foodtracker.model.usuario.GenericResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.login.UsuarioLoginRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
 import retrofit.Call;
 import retrofit.http.Body;
-import retrofit.http.GET;
 import retrofit.http.POST;
 
 public interface FoodTrackerService {
@@ -24,6 +24,6 @@ public interface FoodTrackerService {
     @POST("/foodtruck/login")
     Call<FoodtruckResponse>login(@Body FoodtruckRequest foodtruckRequest);
 
-    @GET("/gustos/mostrar")
-    Call<GustosResponse> mostrarGustos();
+    @POST("/usuario/seleccionarGustos")
+    Call<GenericResponse> seleccionarGustos(@Body GustosRequest gustosRequest);
 }

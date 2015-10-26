@@ -10,5 +10,7 @@
     <string name="title_activity_seleccionar_gustos">SeleccionarGustosActivity</string>
     <string name="title_activity_user_perfil">UserPerfilActivity</string>
     <string name="title_activity_foodtruck_perfil">FoodtruckPerfilActivity</string>
+    <string name="registrate"><u>¿No tienes cuenta? Regístrate aquí</u></string>
+    <string name="soy_foodtruck"><u><b>Soy Foodtruck</b></u></string>
 
 </resources>

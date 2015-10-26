@@ -1,9 +1,14 @@
 package grupo1.sw2.ulima.foodtracker;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +16,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dd.processbutton.iml.ActionProcessButton;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -44,6 +52,17 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
         butRegistrar.setOnClickListener(this);
         butRegistrar.setMode(ActionProcessButton.Mode.ENDLESS);
         butRegistrar.setProgress(0);
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo("grupo1.sw2.ulima.foodtracker", PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -58,7 +77,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
 
         Intent intent = new Intent();
         butRegistrar.setProgress(50);
-        intent.setClass(UserRegistroActivity.this, ContenedorActivity.class);
+        intent.setClass(UserRegistroActivity.this, LoginActivity.class);
         intent.putExtra("usuario", usuarioRequest);
         startActivity(intent);
 
