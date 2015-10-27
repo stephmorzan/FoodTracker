@@ -95,7 +95,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
                 } else {
                     butRegistrar.setProgress(100);
                     Intent intent = new Intent();
-                    intent.setClass(UserRegistroActivity.this, ContenedorActivity.class);
+                    intent.setClass(UserRegistroActivity.this, SeleccionarGustosActivity.class);
                     intent.putExtra("usuario", usuarioRequest);
                     startActivity(intent);
                 }
