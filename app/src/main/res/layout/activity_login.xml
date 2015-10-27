@@ -80,14 +80,26 @@
             custom:pb_textError="Error"
             custom:pb_textProgress="Registrando" />
 
-        <com.facebook.login.widget.LoginButton
+        <Button
             android:id="@+id/butFbLogin"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="16sp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:text="Log in with facebook"
+            android:textColor="@color/ftc_bckgr_editText"
+            android:background="@color/blue_pressed"/>
+
+        <!--<com.facebook.login.widget.LoginButton
+            android:id="@+id/butFbLogin"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />-->
 
         <com.rey.material.widget.TextView
             android:id="@+id/tviRegistrar"
@@ -96,14 +108,18 @@
             android:text="@string/registrate"
             android:textSize="14sp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:textStyle="bold" />
 
         <com.rey.material.widget.TextView
             android:id="@+id/tviFtc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/soy_foodtruck"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:clickable="true"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,7 +21,6 @@ import com.rey.material.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
-import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.login.LoginRequest;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
@@ -35,7 +35,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.butLogin)ActionProcessButton butLogin;
     @Bind(R.id.tviFtc)TextView tviFtc;
     @Bind(R.id.tviRegistrar)TextView tviRegistrar;
-    @Bind(R.id.butFbLogin)LoginButton butFbLogin;
+    //@Bind(R.id.butFbLogin)LoginButton butFbLogin;
+    @Bind(R.id.butFbLogin)Button butFbLogin;
 
     CallbackManager callbackManager;
 
@@ -54,20 +55,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         butLogin.setMode(ActionProcessButton.Mode.ENDLESS);
         butLogin.setProgress(0);
 
+        butFbLogin.setOnClickListener(this);
+
         tviFtc.setOnClickListener(this);
         tviRegistrar.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
+        FoodTrackerService connector = FoodTrackerConnector.getConnector();
         switch (v.getId()){
+
             case R.id.butLogin:
 
                 String usuario = eteUserLogin.getText().toString();
                 String pass = etePasswordLogin.getText().toString();
-
-                FoodTrackerService connector = FoodTrackerConnector.getConnector();
 
                 final LoginRequest loginRequest = new LoginRequest(usuario, pass);
 
@@ -98,7 +100,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.butFbLogin:
 
-                butFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                Call<ClienteResponse> loginFb = connector.loginFb();
+
+                loginFb.enqueue(new Callback<ClienteResponse>() {
+                    @Override
+                    public void onResponse(Response<ClienteResponse> response) {
+                        if (response.body() != null) {
+                            Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Intent intent = new Intent();
+                            intent.setClass(LoginActivity.this, ContenedorActivity.class);
+                            intent.putExtra("usuario", response.body().getUsuario());
+                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                /*butFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
 
@@ -109,7 +132,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         Intent intent = new Intent();
                         intent.setClass(LoginActivity.this, ContenedorActivity.class);
-                        intent.putExtra("usuario", loginRequest);
+                        intent.putExtra("login", loginRequest);
                         startActivity(intent);
                     }
 
@@ -123,8 +146,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     }
 
-                });
+                });*/
 
+                break;
+            case R.id.tviRegistrar:
+                Intent intent = new Intent();
+                intent.setClass(LoginActivity.this, UserRegistroActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tviFtc:
                 break;
         }
 

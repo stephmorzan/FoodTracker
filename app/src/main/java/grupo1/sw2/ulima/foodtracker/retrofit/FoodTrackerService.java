@@ -22,7 +22,8 @@ public interface FoodTrackerService {
     Call<ClienteResponse>login(@Body LoginRequest loginRequest);
     //es el llamado a un servicio.
 
-
+    @POST("/login-social")
+    Call<ClienteResponse>loginFb();
 
     @GET("/usuario/gustos")
     Call<List<GustosResponse>> mostrarGustos();
