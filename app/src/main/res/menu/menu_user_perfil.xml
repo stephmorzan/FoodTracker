@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".UserPerfilActivity">
 
-    <item android:id="@+id/config"
-        android:title="@mipmap/configuraciones"
+    <item android:id="@+id/action_config"
+        android:title="configurar"
+        android:icon="@mipmap/configuraciones"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>
