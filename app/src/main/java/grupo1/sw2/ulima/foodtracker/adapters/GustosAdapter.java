@@ -1,4 +1,4 @@
-package grupo1.sw2.ulima.foodtracker;
+package grupo1.sw2.ulima.foodtracker.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,6 +14,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import grupo1.sw2.ulima.foodtracker.R;
 import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
 
 /**

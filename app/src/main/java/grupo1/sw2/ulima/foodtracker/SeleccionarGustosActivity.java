@@ -10,12 +10,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.dd.processbutton.iml.ActionProcessButton;
-import com.rey.material.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import grupo1.sw2.ulima.foodtracker.adapters.GustosAdapter;
 import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
 import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
