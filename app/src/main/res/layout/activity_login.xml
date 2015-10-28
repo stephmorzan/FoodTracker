@@ -109,6 +109,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:clickable="true"
+            android:textColor="@color/ftc_bckgr_editText"
             android:textStyle="bold" />
 
         <com.rey.material.widget.TextView

@@ -13,13 +13,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+        <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarUserPerfil"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/ftc_background"
@@ -31,19 +31,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rlaUserPerfil"
-        tools:context="grupo1.sw2.ulima.foodtracker.UserPerfilActivity">
+        tools:context="grupo1.sw2.ulima.foodtracker.UserPerfilActivity"
+        android:paddingTop="16dp">
 
         <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:id="@+id/ciriviFotoUser"/>
+            android:layout_height="170dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/ciriviFotoUser"
+            app:civ_border_width="10dp"
+            app:civ_border_color="@color/ftc_background"
+            android:src="@mipmap/logo2"/>
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/tviNombrePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/ciriviFotoUser"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Mi nombre es" />
 
         <LinearLayout
+            android:id="@+id/llaListaGustos"
             android:layout_alignBottom="@id/ciriviFotoUser"
+            android:layout_below="@id/tviNombrePerfil"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
