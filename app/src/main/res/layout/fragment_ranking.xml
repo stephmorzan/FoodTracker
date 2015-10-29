@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     tools:context="grupo1.sw2.ulima.foodtracker.fragments.RankingFragment">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Fragment de ranking" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rviRanking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

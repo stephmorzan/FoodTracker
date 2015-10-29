@@ -46,7 +46,7 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         switch (v.getId()){
             case R.id.iviRanking:
-                toolbar.setTitle("Los mejores FoodTrucks");
+                toolbar.setTitle("Ranking Trucks");
                 Fragment rankingFragment = RankingFragment.newInstance();
                 ft.replace(R.id.flaContenido, rankingFragment);
                 ft.commit();

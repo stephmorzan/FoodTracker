@@ -8,16 +8,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ListView;
 
 import com.rey.material.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserPerfilActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbarUserPerfil)Toolbar toolbar;
     @Bind(R.id.tviNombrePerfil)TextView tviNombrePerfil;
+    @Bind(R.id.tviMisGustos)TextView tviMisGustos;
+    @Bind(R.id.ciriviFotoUser)CircleImageView ciriviFotoUser;
+    @Bind(R.id.lviMisGustos)ListView lviMisGustos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
