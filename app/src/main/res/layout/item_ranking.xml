@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlaRanking"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="15dp"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ciriviRanking"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:src="@mipmap/logo"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
+    <com.rey.material.widget.TextView
+        android:id="@+id/tviPuntaje"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="5.0"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/ftc_bckgr_editText"
+        android:paddingTop="10dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="5dp"
+        android:background="@drawable/circulito"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:id="@+id/llaRankingDatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/ciriviRanking"
+        android:layout_toLeftOf="@id/tviPuntaje"
+        android:layout_centerVertical="true">
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/tviRankingNomb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp"/>
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/tviRankingTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="6dp"/>
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/tviRankingKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Distancia Km"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
