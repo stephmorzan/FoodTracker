@@ -40,6 +40,10 @@
         <activity
             android:name=".FoodtruckPerfilActivity"
             android:label="@string/title_activity_foodtruck_perfil"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MostrarFoodtruckActivity"
+            android:label="@string/title_activity_mostrar_foodtruck"
             android:theme="@style/AppTheme"></activity>
     </application>
 

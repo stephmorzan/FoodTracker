@@ -34,11 +34,9 @@
         tools:context="grupo1.sw2.ulima.foodtracker.UserPerfilActivity"
         android:paddingTop="16dp">
 
-        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
-
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="wrap_content"
-            android:layout_height="165dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_centerHorizontal="true"
             android:id="@+id/ciriviFotoUser"
             app:civ_border_width="10dp"

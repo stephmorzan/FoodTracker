@@ -4,12 +4,6 @@
     android:layout_height="match_parent"
     tools:context="grupo1.sw2.ulima.foodtracker.fragments.CuponesFragment">
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment de cupones" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rviCupones"
         android:layout_width="match_parent"

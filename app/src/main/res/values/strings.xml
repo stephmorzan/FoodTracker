@@ -12,5 +12,6 @@
     <string name="title_activity_foodtruck_perfil">FoodtruckPerfilActivity</string>
     <string name="registrate"><u>¿No tienes cuenta? Regístrate aquí</u></string>
     <string name="soy_foodtruck"><u><b>Soy Foodtruck</b></u></string>
+    <string name="title_activity_mostrar_foodtruck">MostrarFoodtruckActivity</string>
 
 </resources>
