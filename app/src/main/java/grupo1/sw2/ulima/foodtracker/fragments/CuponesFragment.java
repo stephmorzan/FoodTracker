@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.R;
 
 public class CuponesFragment extends Fragment {
@@ -32,7 +33,9 @@ public class CuponesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cupones, container, false);
+        View layoutCupones = inflater.inflate(R.layout.fragment_cupones, container, false);
+        ButterKnife.bind(rviCupones, layoutCupones);
+        return layoutCupones;
     }
 
 }
