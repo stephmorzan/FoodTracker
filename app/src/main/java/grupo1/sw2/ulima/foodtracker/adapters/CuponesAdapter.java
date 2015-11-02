@@ -37,7 +37,7 @@ public class CuponesAdapter extends RecyclerView.Adapter<CuponesAdapter.CuponesV
 
     @Override
     public void onBindViewHolder(CuponesViewHolder holder, int position) {
-
+        holder.itemView.setOnClickListener(listener);
     }
 
 
