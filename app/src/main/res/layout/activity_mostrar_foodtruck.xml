@@ -39,33 +39,78 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <FrameLayout
+        <ImageView
+            android:id="@+id/iviFtcFoto"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center_vertical">
-
-            <ImageView
-                android:id="@+id/iviFondoFtc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <android.support.v4.widget.CircleImageView
-                android:id="@+id/ciriviLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
-
-        </FrameLayout>
+            android:layout_height="100dp" />
 
         <com.rey.material.widget.TextView
             android:id="@+id/tviFtcTipo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Tipo de comida"
+            android:textSize="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"/>
 
         <com.rey.material.widget.TextView
             android:id="@+id/tviFtcNombre"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Nombre Foodtruck"
+            android:textSize="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"/>
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/tviFtcDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Av. Javier Prado Este s/n"
+            android:textSize="16dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="5dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/estoy_aqui"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#9E9E9E"/>
+
+            <com.rey.material.widget.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distancia"
+                android:textSize="16dp"
+                android:layout_marginRight="20dp"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/horario"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+
+            <com.rey.material.widget.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horario de atención"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
 
         </LinearLayout>
 
