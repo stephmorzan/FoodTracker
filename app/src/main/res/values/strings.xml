@@ -13,5 +13,6 @@
     <string name="registrate"><u>¿No tienes cuenta? Regístrate aquí</u></string>
     <string name="soy_foodtruck"><u><b>Soy Foodtruck</b></u></string>
     <string name="title_activity_mostrar_foodtruck">MostrarFoodtruckActivity</string>
+    <string name="title_activity_ver_menu">VerMenuActivity</string>
 
 </resources>

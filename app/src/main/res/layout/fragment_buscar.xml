@@ -5,12 +5,7 @@
     tools:context="grupo1.sw2.ulima.foodtracker.fragments.BuscarFragment"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/mapa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        tools:context="grupo1.sw2.ulima.foodtracker.fragments.BuscarFragment"/>
+    
 
     <TextView
         android:layout_width="match_parent"

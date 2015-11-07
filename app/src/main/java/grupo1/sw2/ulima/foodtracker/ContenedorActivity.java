@@ -31,10 +31,7 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         toolbar.setTitle("FoodTracker");
         setSupportActionBar(toolbar);
 
-        Fragment buscarFragment = BuscarFragment.newInstance();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.flaContenido, buscarFragment);
-        ft.commit();
+        onDefaultFragment();
 
         iviCupones.setOnClickListener(this);
         iviBuscar.setOnClickListener(this);
@@ -63,7 +60,17 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
                 ft.replace(R.id.flaContenido, cuponesFragment);
                 ft.commit();
                 break;
+            default:
+                onDefaultFragment();
+                break;
         }
 
+    }
+
+    private void onDefaultFragment(){
+        Fragment buscarFragment = BuscarFragment.newInstance();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.flaContenido, buscarFragment);
+        ft.commit();
     }
 }

@@ -12,10 +12,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
-import butterknife.Bind;
 import grupo1.sw2.ulima.foodtracker.R;
 
 public class BuscarFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, OnMapReadyCallback {
@@ -24,7 +22,6 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     private Location location;
     private LocationRequest locationRequest;
     private GoogleMap googleMap;
-    @Bind(R.id.mapa)MapFragment mapFragment;
 
     public BuscarFragment() {
     }
@@ -39,15 +36,15 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
         super.onCreate(savedInstanceState);
 
 
-        mapFragment.getMapAsync(this);
+
     }
 
     private void buildGoogleApiClient(){
-        apiClient = new GoogleApiClient.Builder(this.getContext())
+        /*apiClient = new GoogleApiClient.Builder(this.getContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
-        apiClient.connect();
+        apiClient.connect();*/
     }
 
     @Override
