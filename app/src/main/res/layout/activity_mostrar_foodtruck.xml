@@ -45,7 +45,9 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp">
 
                 <LinearLayout
                     android:id="@+id/llaNombTipoFtc"
@@ -60,8 +62,7 @@
                     android:layout_gravity="left"
                     android:text="Tipo de comida"
                     android:textSize="15dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginBottom="5dp"/>
 
                 <com.rey.material.widget.TextView
                     android:id="@+id/tviFtcNombre"
@@ -71,7 +72,6 @@
                     android:text="Nombre Foodtruck"
                     android:textSize="20dp"
                     android:layout_marginBottom="30dp"
-                    android:layout_marginLeft="5dp"
                     android:textStyle="bold"/>
 
                 </LinearLayout>
@@ -84,7 +84,7 @@
                         android:background="#9E9E9E"
                         android:layout_alignTop="@id/llaNombTipoFtc"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="30dp" />
+                        android:layout_marginRight="25dp" />
 
                 </RelativeLayout>
 
@@ -138,45 +138,56 @@
 
                 </LinearLayout>
 
-                <com.dd.processbutton.iml.ActionProcessButton
-                    android:id="@+id/butVerMenu"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="Ver menú"
-                    android:textColor="@color/ftc_bckgr_editText"
-                    android:textSize="20sp"
-                    custom:pb_colorComplete="@color/green_complete"
-                    custom:pb_colorError="@color/red_error"
-                    custom:pb_colorNormal="@color/ftc_background"
-                    custom:pb_colorPressed="@color/blue_pressed"
-                    custom:pb_colorProgress="@color/purple_progress"
-                    custom:pb_textComplete="¡Listo!"
-                    custom:pb_textError="Error"
-                    custom:pb_textProgress="Registrando" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <com.dd.processbutton.iml.ActionProcessButton
-                    android:id="@+id/butObtenerRuta"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:text="Obtener ruta"
-                    android:textColor="@color/ftc_bckgr_editText"
-                    android:textSize="20sp"
-                    custom:pb_colorComplete="@color/green_complete"
-                    custom:pb_colorError="@color/red_error"
-                    custom:pb_colorNormal="@color/ftc_background"
-                    custom:pb_colorPressed="@color/blue_pressed"
-                    custom:pb_colorProgress="@color/purple_progress"
-                    custom:pb_textComplete="¡Listo!"
-                    custom:pb_textError="Error"
-                    custom:pb_textProgress="Registrando" />
+                    <com.dd.processbutton.iml.ActionProcessButton
+                        android:id="@+id/butVerMenu"
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="Ver menú"
+                        android:textColor="@color/ftc_bckgr_editText"
+                        android:textSize="16sp"
+                        custom:pb_colorComplete="@color/green_complete"
+                        custom:pb_colorError="@color/red_error"
+                        custom:pb_colorNormal="@color/ftc_background"
+                        custom:pb_colorPressed="@color/blue_pressed"
+                        custom:pb_colorProgress="@color/purple_progress"
+                        custom:pb_textComplete="¡Listo!"
+                        custom:pb_textError="Error"
+                        custom:pb_textProgress="Registrando"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="40dp"/>
+
+                    <com.dd.processbutton.iml.ActionProcessButton
+                        android:id="@+id/butObtenerRuta"
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="Obtener ruta"
+                        android:textColor="@color/ftc_bckgr_editText"
+                        android:textSize="16sp"
+                        custom:pb_colorComplete="@color/green_complete"
+                        custom:pb_colorError="@color/red_error"
+                        custom:pb_colorNormal="@color/ftc_background"
+                        custom:pb_colorPressed="@color/blue_pressed"
+                        custom:pb_colorProgress="@color/purple_progress"
+                        custom:pb_textComplete="¡Listo!"
+                        custom:pb_textError="Error"
+                        custom:pb_textProgress="Registrando"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"/>
+
+                </RelativeLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
@@ -227,7 +238,56 @@
                         android:layout_weight="1"
                         />
 
+                </LinearLayout>
 
+                <com.rey.material.widget.TextView
+                    android:id="@+id/tviIndicacionFtc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Califica tu foodtruck"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="@color/ftc_background"
+                        android:src="@mipmap/ic_launcher"/>
+
+                    <com.rey.material.widget.TextView
+                        android:id="@+id/tviComentario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Comenta aquí"
+                        android:ems="10"
+                        android:editable="true" />
+
+                    <com.dd.processbutton.iml.ActionProcessButton
+                        android:id="@+id/butComentar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Obtener ruta"
+                        android:textColor="@color/ftc_bckgr_editText"
+                        android:textSize="13sp"
+                        custom:pb_colorComplete="@color/green_complete"
+                        custom:pb_colorError="@color/red_error"
+                        custom:pb_colorNormal="@color/ftc_background"
+                        custom:pb_colorPressed="@color/blue_pressed"
+                        custom:pb_colorProgress="@color/purple_progress"
+                        custom:pb_textComplete="¡Listo!"
+                        custom:pb_textError="Error"
+                        custom:pb_textProgress="Registrando"/>
 
                 </LinearLayout>
 
