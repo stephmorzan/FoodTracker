@@ -167,7 +167,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onResume();
 
         // Logs 'install' and 'app activate' App Events.
-        AppEventsLogger.activateApp(this);
+        //AppEventsLogger.activateApp(this);
     }
 
     @Override
@@ -175,7 +175,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onPause();
 
         // Logs 'app deactivate' App Event.
-        AppEventsLogger.deactivateApp(this);
+        //AppEventsLogger.deactivateApp(this);
     }
 
 
