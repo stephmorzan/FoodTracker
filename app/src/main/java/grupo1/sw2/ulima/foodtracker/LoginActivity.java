@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             intent.setClass(LoginActivity.this, ContenedorActivity.class);
                             intent.putExtra("usuario", loginRequest);
                             startActivity(intent);
+                            finish();
                         }
                     }
 
