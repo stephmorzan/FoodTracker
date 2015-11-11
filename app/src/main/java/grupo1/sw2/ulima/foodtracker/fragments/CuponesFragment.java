@@ -33,7 +33,7 @@ public class CuponesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View layoutCupones = inflater.inflate(R.layout.fragment_cupones, container, false);
-        ButterKnife.bind(rviCupones, layoutCupones);
+        ButterKnife.bind(this, layoutCupones);
         return layoutCupones;
     }
 

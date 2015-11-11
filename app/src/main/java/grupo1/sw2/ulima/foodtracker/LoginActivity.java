@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 final LoginRequest loginRequest = new LoginRequest(usuario, pass);
 
                 Call<ClienteResponse> login = connector.login(loginRequest);
+                butLogin.setProgress(50);
                 login.enqueue(new Callback<ClienteResponse>() {
                     @Override
                     public void onResponse(Response<ClienteResponse> response) {
@@ -84,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             butLogin.setProgress(100);
                             Intent intent = new Intent();
                             intent.setClass(LoginActivity.this, ContenedorActivity.class);
-                            intent.putExtra("usuario", loginRequest);
+                            intent.putExtra("usuario", loginRequest.getUsuario());
                             startActivity(intent);
                             finish();
                         }
@@ -102,7 +103,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.butFbLogin:
 
                 Call<ClienteResponse> loginFb = connector.loginFb();
-
                 loginFb.enqueue(new Callback<ClienteResponse>() {
                     @Override
                     public void onResponse(Response<ClienteResponse> response) {

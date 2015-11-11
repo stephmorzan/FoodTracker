@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.R;
+import grupo1.sw2.ulima.foodtracker.adapters.RankingAdapter;
 
 public class RankingFragment extends Fragment {
 
     @Bind(R.id.rviRanking)RecyclerView rviRanking;
+    RankingAdapter rankingAdapter;
 
     public RankingFragment() {
     }
@@ -27,7 +29,6 @@ public class RankingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -36,7 +37,10 @@ public class RankingFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View layoutRanking = inflater.inflate(R.layout.fragment_ranking, container, false);
-        ButterKnife.bind(rviRanking, layoutRanking);
+        ButterKnife.bind(this, layoutRanking);
+        rankingAdapter = new RankingAdapter(this.getContext());
+        rviRanking.setAdapter(rankingAdapter);
+        //rankingAdapter.updateData();
         return layoutRanking;
     }
 

@@ -3,6 +3,8 @@ package grupo1.sw2.ulima.foodtracker.retrofit;
 import java.util.List;
 
 import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
+import grupo1.sw2.ulima.foodtracker.model.ProductoResponse;
+import grupo1.sw2.ulima.foodtracker.model.foodtruck.FoodtruckResponse;
 import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.login.LoginRequest;
 import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
@@ -25,9 +27,18 @@ public interface FoodTrackerService {
     @POST("/login-social")
     Call<ClienteResponse>loginFb();
 
-    @GET("/usuario/gustos")
+    @GET("/mostrarGustos")
     Call<List<GustosResponse>> mostrarGustos();
 
-    @POST("/usuario/sendGustos")
-    Call<ClienteResponse> seleccionarGustos(@Body List<GustosResponse> gustosResponse);
+    @POST("/seleccionarGustos")
+    Call<UsuarioResponse> seleccionarGustos(@Body UsuarioRequest usuario, List<GustosResponse> gustosResponse);
+
+    @GET("usuario/ranking")
+    Call<FoodtruckResponse> listarRanking();
+
+    @GET("usuario/perfil")
+    Call<ClienteResponse> mostrarPerfil(@Body int tipo);
+
+    @GET("usuario/productos")
+    Call<ProductoResponse> mostrarProductos(@Body int idFoodTruck);
 }

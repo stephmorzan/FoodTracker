@@ -26,6 +26,8 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
     @Bind(R.id.iviBuscar)ImageView iviBuscar;
     @Bind(R.id.iviRanking)ImageView iviRanking;
 
+    String usuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,9 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         ButterKnife.bind(this);
         toolbar.setTitle("FoodTracker");
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        usuario = intent.getStringExtra("usuario");
 
         onDefaultFragment();
 
@@ -76,6 +81,16 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.perfil:
+                Intent intent = new Intent();
+                intent.setClass(ContenedorActivity.this, UserPerfilActivity.class);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void onDefaultFragment(){
         Fragment buscarFragment = BuscarFragment.newInstance();

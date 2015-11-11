@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.adapters.GustosAdapter;
 import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
 import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
+import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioRequest;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
 import retrofit.Call;
@@ -41,6 +42,14 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
         toolbar.setTitle("Seleccionar gustos");
         toolbar.setTitleTextColor(getResources().getColor(R.color.ftc_background));
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        String nombre = intent.getStringExtra("usuario");
+        String correo = intent.getStringExtra("usuario");
+        String user = intent.getStringExtra("usuario");
+        String password = intent.getStringExtra("usuario");
+
+        final UsuarioRequest usuarioRequest = new UsuarioRequest(nombre, correo, user, password);
 
         butGuardarGustos.setOnClickListener(this);
         butGuardarGustos.setMode(ActionProcessButton.Mode.ENDLESS);
@@ -77,7 +86,7 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
     @Override
     public void onClick(View v) {
 
-        FoodTrackerService connector = FoodTrackerConnector.getConnector();
+        /*FoodTrackerService connector = FoodTrackerConnector.getConnector();
         butGuardarGustos.setProgress(50);
         Call<ClienteResponse> seleccionarGustos = connector.seleccionarGustos(seleccionados);
         seleccionarGustos.enqueue(new Callback<ClienteResponse>() {
@@ -96,7 +105,7 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
             public void onFailure(Throwable t) {
                 Toast.makeText(SeleccionarGustosActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 
     @Override

@@ -2,7 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="grupo1.sw2.ulima.foodtracker.ContenedorActivity">
-    <item android:id="@+id/perfil" android:title="Mi perfil"
+
+    <item
+        android:id="@+id/perfil"
         android:icon="@mipmap/profile"
-        android:orderInCategory="100" app:showAsAction="never" />
+        android:orderInCategory="100"
+        android:title="Mi perfil"
+        app:showAsAction="ifRoom" />
+
 </menu>

@@ -14,7 +14,9 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 import grupo1.sw2.ulima.foodtracker.R;
+import grupo1.sw2.ulima.foodtracker.fragments.RankingFragment;
 
 /**
  * Created by stmorzan on 28/10/2015.
@@ -60,24 +62,64 @@ public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.RankingV
 //        this.listener = listener;
 //    }
 
+    public void updateRankingList(List<String> ranking){
+        this.lista = ranking;
+        notifyDataSetChanged();
+    }
+
     class RankingViewHolder extends RecyclerView.ViewHolder {
-        //@Bind(R.id.tviRankingNombre)
-        TextView tviRankingNombre;
+        @Bind(R.id.tviPuntaje)
+        TextView tviPuntaje;
+        @Bind(R.id.ciriviRanking)
+        CircleImageView ciriviRanking;
+        @Bind(R.id.tviRankingNomb) TextView tviRankingNombre;
+        @Bind(R.id.tviRankingTipo) TextView tviRankingTipo;
+        @Bind(R.id.tviRankingKm) TextView tviRankingKm;
 
         public RankingViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
+        public TextView getTviPuntaje() {
+            return tviPuntaje;
+        }
+
+        public void setTviPuntaje(TextView tviPuntaje) {
+            this.tviPuntaje = tviPuntaje;
+        }
+
+        public CircleImageView getCiriviRanking() {
+            return ciriviRanking;
+        }
+
+        public void setCiriviRanking(CircleImageView ciriviRanking) {
+            this.ciriviRanking = ciriviRanking;
+        }
+
         public TextView getTviRankingNombre() {
             return tviRankingNombre;
         }
-    }
 
-    public void updateRankingList(List<String> ranking){
-        this.lista = ranking;
-        notifyDataSetChanged();
-    }
+        public void setTviRankingNombre(TextView tviRankingNombre) {
+            this.tviRankingNombre = tviRankingNombre;
+        }
 
+        public TextView getTviRankingTipo() {
+            return tviRankingTipo;
+        }
+
+        public void setTviRankingTipo(TextView tviRankingTipo) {
+            this.tviRankingTipo = tviRankingTipo;
+        }
+
+        public TextView getTviRankingKm() {
+            return tviRankingKm;
+        }
+
+        public void setTviRankingKm(TextView tviRankingKm) {
+            this.tviRankingKm = tviRankingKm;
+        }
+    }
 
 }
