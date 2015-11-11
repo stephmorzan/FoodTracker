@@ -21,8 +21,7 @@ public class RankingFragment extends Fragment {
     }
 
     public static RankingFragment newInstance() {
-        RankingFragment fragment = new RankingFragment();
-        return fragment;
+        return new RankingFragment();
     }
 
     @Override

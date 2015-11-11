@@ -21,7 +21,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="FoodTracker"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,6 +49,10 @@
         <activity
             android:name=".VerMenuActivity"
             android:label="@string/title_activity_ver_menu"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ConfigurarPerfilActivity"
+            android:label="@string/title_activity_configurar_perfil"
             android:theme="@style/AppTheme"></activity>
     </application>
 

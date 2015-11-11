@@ -14,5 +14,6 @@
     <string name="soy_foodtruck"><u><b>Soy Foodtruck</b></u></string>
     <string name="title_activity_mostrar_foodtruck">MostrarFoodtruckActivity</string>
     <string name="title_activity_ver_menu">VerMenuActivity</string>
+    <string name="title_activity_configurar_perfil">ConfigurarPerfilActivity</string>
 
 </resources>

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.adapters.GustosAdapter;
 import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
 import grupo1.sw2.ulima.foodtracker.model.gustos.GustosResponse;
@@ -28,6 +29,7 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
 
     @Bind(R.id.lviGustos)ListView lviGustos;
     @Bind(R.id.butGuardarGustos)ActionProcessButton butGuardarGustos;
+    @Bind(R.id.toolbarGustos)Toolbar toolbar;
     List<GustosResponse> gusto;
     List<GustosResponse> seleccionados = new ArrayList<>();
 
@@ -35,7 +37,7 @@ public class SeleccionarGustosActivity extends AppCompatActivity implements View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccionar_gustos);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         toolbar.setTitle("Seleccionar gustos");
         toolbar.setTitleTextColor(getResources().getColor(R.color.ftc_background));
         setSupportActionBar(toolbar);

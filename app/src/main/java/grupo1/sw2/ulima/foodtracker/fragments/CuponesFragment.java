@@ -21,8 +21,7 @@ public class CuponesFragment extends Fragment {
     }
 
     public static CuponesFragment newInstance() {
-        CuponesFragment fragment = new CuponesFragment();
-        return fragment;
+        return new CuponesFragment();
     }
 
     @Override

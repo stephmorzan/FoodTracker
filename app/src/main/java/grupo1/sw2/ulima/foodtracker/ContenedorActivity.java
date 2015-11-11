@@ -2,10 +2,13 @@ package grupo1.sw2.ulima.foodtracker;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -66,6 +69,13 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_inicio, menu);
+        return true;
+    }
+
 
     private void onDefaultFragment(){
         Fragment buscarFragment = BuscarFragment.newInstance();
