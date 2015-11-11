@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.rey.material.widget.TextView;
 
@@ -16,25 +15,25 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import grupo1.sw2.ulima.foodtracker.R;
-import grupo1.sw2.ulima.foodtracker.fragments.RankingFragment;
+import grupo1.sw2.ulima.foodtracker.model.RankingResponse;
 
 /**
  * Created by stmorzan on 28/10/2015.
  */
 public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.RankingViewHolder>{
     private LayoutInflater inflater;
-    List<String> lista;
+    List<RankingResponse> ranking;
     //View.OnClickListener listener;
 
     public RankingAdapter(Context context) {
         inflater = LayoutInflater.from(context);
-        lista = new ArrayList<>();//lista de objetos ranking
+        ranking = new ArrayList<>();//ranking de objetos ranking
     }
 
-    public void updateData(List<String> nuevaLista) {
-        this.lista.clear();
-        for (String s: nuevaLista) {
-            lista.add(s);
+    public void updateData(List<RankingResponse> nuevoRanking) {
+        this.ranking.clear();
+        for (RankingResponse s: nuevoRanking) {
+            ranking.add(s);
         }
         notifyDataSetChanged();
     }
@@ -47,23 +46,25 @@ public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.RankingV
 
     @Override
     public void onBindViewHolder(RankingViewHolder holder, int position) {
-        String current = lista.get(position);
-        holder.getTviRankingNombre().setText(current);
-
+        RankingResponse current = ranking.get(position);
+        holder.getTviRankingNombre().setText(current.getNombre().toString());
+        holder.getTviRankingTipo().setText(current.getTipo().toString());
+        holder.getTviRankingKm().setText(""+current.getKm());
+        holder.getTviPuntaje().setText(""+current.getPuntaje());
         //holder.itemView.setOnClickListener(listener);
     }
 
     @Override
     public int getItemCount() {
-        return lista.size();
+        return ranking.size();
     }
 
 //    public void setOnItemClickListener(View.OnClickListener listener){
 //        this.listener = listener;
 //    }
 
-    public void updateRankingList(List<String> ranking){
-        this.lista = ranking;
+    public void updateRankingList(List<RankingResponse> ranking){
+        this.ranking = ranking;
         notifyDataSetChanged();
     }
 

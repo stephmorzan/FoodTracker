@@ -25,6 +25,8 @@ public class UserPerfilActivity extends AppCompatActivity {
     @Bind(R.id.ciriviFotoUser)CircleImageView ciriviFotoUser;
     @Bind(R.id.lviMisGustos)ListView lviMisGustos;
 
+    String usuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,11 @@ public class UserPerfilActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.perfil:
+            case R.id.action_config:
+                Intent intent = new Intent();
+                intent.setClass(UserPerfilActivity.this, ConfigurarPerfilActivity.class);
+                intent.putExtra("usuario", usuario);
+                startActivity(intent);
         }
 
 
