@@ -37,6 +37,7 @@
         tools:showIn="@layout/activity_configurar_perfil">
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/rviConfGustos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -44,9 +45,10 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:layout_weight="1"
-            android:background="@color/ftc_background">
+            android:background="@color/ftc_background"
+            android:layout_alignParentBottom="true">
 
             <com.dd.processbutton.iml.ActionProcessButton
                 android:id="@+id/butCerrarSesion"
