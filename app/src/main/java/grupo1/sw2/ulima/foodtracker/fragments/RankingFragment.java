@@ -38,7 +38,7 @@ public class RankingFragment extends Fragment {
 
         View layoutRanking = inflater.inflate(R.layout.fragment_ranking, container, false);
         ButterKnife.bind(this, layoutRanking);
-        rankingAdapter = new RankingAdapter(this.getContext());
+        rankingAdapter = new RankingAdapter(this.getActivity());
         rviRanking.setAdapter(rankingAdapter);
         //rankingAdapter.updateData();
         return layoutRanking;
