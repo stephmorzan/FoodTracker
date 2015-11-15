@@ -28,6 +28,7 @@ public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.RankingV
     public RankingAdapter(Context context) {
         inflater = LayoutInflater.from(context);
         ranking = new ArrayList<>();//ranking de objetos ranking
+        ranking.add(new RankingResponse("Empanadacombi", "hamburguesas", 7.3f, 4.8f));
     }
 
     public void updateData(List<RankingResponse> nuevoRanking) {

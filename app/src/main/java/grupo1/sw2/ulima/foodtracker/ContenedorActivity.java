@@ -87,6 +87,7 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
             case R.id.perfil:
                 Intent intent = new Intent();
                 intent.setClass(ContenedorActivity.this, UserPerfilActivity.class);
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

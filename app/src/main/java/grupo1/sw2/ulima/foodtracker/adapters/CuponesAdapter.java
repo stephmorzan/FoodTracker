@@ -27,9 +27,11 @@ public class CuponesAdapter extends RecyclerView.Adapter<CuponesAdapter.CuponesV
     List<CuponResponse> cupones;
     View.OnClickListener listener;
 
-    public CuponesAdapter(Context context) {
+    public CuponesAdapter(Context context, List<CuponResponse> cupones) {
         inflater = LayoutInflater.from(context);
+        this.cupones = cupones;
         cupones = new ArrayList<>();
+        cupones.add(new CuponResponse(123,"20% en empanadas","qr", "Empanadacombi"));
     }
 
     @Override
@@ -48,7 +50,7 @@ public class CuponesAdapter extends RecyclerView.Adapter<CuponesAdapter.CuponesV
 
     @Override
     public int getItemCount() {
-        return 0;
+        return cupones.size();
     }
 
     class CuponesViewHolder extends RecyclerView.ViewHolder {

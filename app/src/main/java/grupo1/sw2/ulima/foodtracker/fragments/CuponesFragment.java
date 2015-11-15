@@ -9,10 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.R;
 import grupo1.sw2.ulima.foodtracker.adapters.CuponesAdapter;
+import grupo1.sw2.ulima.foodtracker.model.CuponResponse;
 
 public class CuponesFragment extends Fragment {
 
@@ -36,7 +39,7 @@ public class CuponesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View layoutCupones = inflater.inflate(R.layout.fragment_cupones, container, false);
         ButterKnife.bind(this, layoutCupones);
-        cuponesAdapter = new CuponesAdapter(this.getActivity());
+        cuponesAdapter = new CuponesAdapter(this.getActivity(), new ArrayList<CuponResponse>());
         rviCupones.setAdapter(cuponesAdapter);
         return layoutCupones;
     }

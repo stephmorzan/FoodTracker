@@ -37,7 +37,8 @@ public class UserPerfilActivity extends AppCompatActivity {
         toolbar.setTitle("Mi perfil");
 
         Intent intent = getIntent();
-
+        usuario = intent.getStringExtra("usuario");
+        tviNombrePerfil.setText(usuario);
     }
 
     @Override
