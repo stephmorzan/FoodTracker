@@ -11,8 +11,13 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import grupo1.sw2.ulima.foodtracker.R;
 
@@ -34,7 +39,7 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        SupportMapFragment mapFragment;
 
 
     }
@@ -45,6 +50,12 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
                 .addOnConnectionFailedListener(this)
                 .build();
         apiClient.connect();*/
+        apiClient = new GoogleApiClient.Builder(this.getActivity())
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
+
+        apiClient.connect();
     }
 
     @Override
@@ -57,10 +68,20 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
+        buildGoogleApiClient();
     }
 
     @Override
     public void onConnected(Bundle bundle) {
+        location = LocationServices.FusedLocationApi.getLastLocation(apiClient);
+
+        locationRequest = new LocationRequest();
+        locationRequest.setInterval(60000);
+        locationRequest.setFastestInterval(30000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
+
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                apiClient, locationRequest, this);
 
     }
 
@@ -71,11 +92,20 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
 
     @Override
     public void onLocationChanged(Location location) {
-
+        this.location = location;
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
+    }
+
+    private void agregarMarcador(){
+        if (location != null){
+            LatLng actual = new LatLng(location.getLatitude(), location.getLongitude());
+            googleMap.addMarker(new MarkerOptions().position(actual).title("Aquí estoy"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(actual));
+            googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
+        }
     }
 }
