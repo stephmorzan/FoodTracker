@@ -65,8 +65,8 @@
             android:id="@+id/butLogin"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:text="Iniciar sesión"
             android:textColor="@color/ftc_bckgr_editText"
             android:textSize="20sp"
@@ -77,7 +77,7 @@
             custom:pb_colorProgress="@color/purple_progress"
             custom:pb_textComplete="¡Listo!"
             custom:pb_textError="Error"
-            custom:pb_textProgress="Registrando" />
+            custom:pb_textProgress="Iniciando" />
 
         <Button
             android:id="@+id/butFbLogin"
@@ -91,14 +91,7 @@
             android:textColor="@color/ftc_bckgr_editText"
             android:background="@color/blue_pressed"/>
 
-        <!--<com.facebook.login.widget.LoginButton
-            android:id="@+id/butFbLogin"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />-->
+
 
         <com.rey.material.widget.TextView
             android:id="@+id/tviRegistrar"
@@ -119,7 +112,8 @@
             android:text="@string/soy_foodtruck"
             android:textSize="14sp"
             android:clickable="true"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"/>
 
     </LinearLayout>
 

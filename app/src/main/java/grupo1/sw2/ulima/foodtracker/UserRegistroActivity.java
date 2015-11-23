@@ -53,16 +53,6 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
         butRegistrar.setMode(ActionProcessButton.Mode.ENDLESS);
         butRegistrar.setProgress(0);
 
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo("grupo1.sw2.ulima.foodtracker", PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
