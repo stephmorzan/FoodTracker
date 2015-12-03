@@ -31,6 +31,8 @@
         tools:context="grupo1.sw2.ulima.foodtracker.FoodtruckPerfilActivity"
         tools:showIn="@layout/activity_foodtruck_perfil">
 
+
+
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

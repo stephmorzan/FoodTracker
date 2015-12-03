@@ -1,6 +1,7 @@
 package grupo1.sw2.ulima.foodtracker.fragments;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -27,6 +29,7 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     private Location location;
     private LocationRequest locationRequest;
     private GoogleMap googleMap;
+    private MapFragment mapFragment;
 
     public BuscarFragment() {
     }
@@ -39,12 +42,16 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SupportMapFragment mapFragment;
+        mapFragment = MapFragment.newInstance();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.map, mapFragment);
+        fragmentTransaction.commit();
 
+        googleMap = mapFragment.getMap();
 
     }
 
-    private void buildGoogleApiClient(){
+    private void buildGoogleApiClient() {
         /*apiClient = new GoogleApiClient.Builder(this.getContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -62,12 +69,14 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_buscar, container, false);
+        View view = inflater.inflate(R.layout.fragment_buscar, container, false);
+        return view;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
+
         buildGoogleApiClient();
     }
 
@@ -100,12 +109,29 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
 
     }
 
-    private void agregarMarcador(){
-        if (location != null){
+    private void agregarMarcador() {
+        if (location != null) {
             LatLng actual = new LatLng(location.getLatitude(), location.getLongitude());
+            googleMap.addMarker(new MarkerOptions().position(actual).title("Aquí estoy"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(actual));
+            googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
+        }else{
+
+            LatLng actual = new LatLng(17.000, 13.000);
             googleMap.addMarker(new MarkerOptions().position(actual).title("Aquí estoy"));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(actual));
             googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
         }
     }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        MapFragment f = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
+        if (f != null)
+            getFragmentManager().beginTransaction().remove(f).commit();
+    }
+
 }

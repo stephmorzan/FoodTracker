@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#000000</color><!-->#3F51B5 color que vino por default<-->
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent1">#FF4081</color>
+    <color name="colorAccent">#FFFFFF</color>
 
     <color name="ftc_background">#00BCD4</color>
     <color name="ftc_bckgr_editText">#FFFFFF</color>

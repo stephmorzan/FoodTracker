@@ -5,18 +5,19 @@
     tools:context="grupo1.sw2.ulima.foodtracker.fragments.BuscarFragment"
     android:orientation="vertical">
 
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/mapa"
-        android:name="com.google.android.gms.maps.SupportMapFragment">
-    </fragment>
+    <FrameLayout
+        android:id="@+id/map"
 
-    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fragment de buscar" />
+        android:layout_height="match_parent"
+        tools:context="grupo1.sw2.ulima.foodtracker.ContenedorActivity" />
 
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

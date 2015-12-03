@@ -33,12 +33,18 @@ import retrofit.Retrofit;
 
 public class UserRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Bind(R.id.eteNombre)EditText eteNombre;
-    @Bind(R.id.eteCorreo)EditText eteCorreo;
-    @Bind(R.id.eteUser)EditText eteUser;
-    @Bind(R.id.etePassword)EditText etePassword;
-    @Bind(R.id.butRegistrar) ActionProcessButton butRegistrar;
-    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.eteNombre)
+    EditText eteNombre;
+    @Bind(R.id.eteCorreo)
+    EditText eteCorreo;
+    @Bind(R.id.eteUser)
+    EditText eteUser;
+    @Bind(R.id.etePassword)
+    EditText etePassword;
+    @Bind(R.id.butRegistrar)
+    ActionProcessButton butRegistrar;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +85,7 @@ public class UserRegistroActivity extends AppCompatActivity implements View.OnCl
         registrar.enqueue(new Callback<UsuarioResponse>() {
             @Override
             public void onResponse(Response<UsuarioResponse> response) {
+                Log.e("tag", response.body() != null ? response.body().toString() : response.errorBody().toString());
                 if (response.body().getMsgError() != null) {
                     butRegistrar.setProgress(-1);
                     Toast.makeText(UserRegistroActivity.this, response.body().getMsgError(), Toast.LENGTH_SHORT).show();

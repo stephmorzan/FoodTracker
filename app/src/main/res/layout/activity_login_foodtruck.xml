@@ -57,8 +57,8 @@
         android:id="@+id/butLoginFtc"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="40dp"
         android:text="Iniciar sesión"
         android:textColor="@color/ftc_bckgr_editText"
         android:textSize="20sp"
@@ -70,5 +70,15 @@
         custom:pb_textComplete="¡Listo!"
         custom:pb_textError="Error"
         custom:pb_textProgress="Iniciando" />
+
+    <com.rey.material.widget.TextView
+        android:id="@+id/tviNoFtc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_soy_foodtruck"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
 
 </LinearLayout>

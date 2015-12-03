@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.butLogin)ActionProcessButton butLogin;
     @Bind(R.id.tviFtc)TextView tviFtc;
     @Bind(R.id.tviRegistrar)TextView tviRegistrar;
-    //@Bind(R.id.butFbLogin)LoginButton butFbLogin;
     @Bind(R.id.butFbLogin)Button butFbLogin;
 
     CallbackManager callbackManager;
@@ -175,6 +174,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 break;
             case R.id.tviFtc:
+                Intent intent2 = new Intent();
+                intent2.setClass(LoginActivity.this, LoginFoodtruckActivity.class);
+                startActivity(intent2);
                 break;
         }
 

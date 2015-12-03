@@ -56,7 +56,6 @@ public class CuponesAdapter extends RecyclerView.Adapter<CuponesAdapter.CuponesV
     class CuponesViewHolder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.ciriviCupon)CircleImageView ciriviCupon;
-        @Bind(R.id.iviQr)ImageView iviQr;
         @Bind(R.id.tviExpiracion)TextView tviExpiracion;
         @Bind(R.id.tviCuponDscto)TextView tviDscto;
         @Bind(R.id.tviCuponNombre)TextView tviNombre;
@@ -73,14 +72,6 @@ public class CuponesAdapter extends RecyclerView.Adapter<CuponesAdapter.CuponesV
 
         public void setCiriviCupon(CircleImageView ciriviCupon) {
             this.ciriviCupon = ciriviCupon;
-        }
-
-        public ImageView getIviQr() {
-            return iviQr;
-        }
-
-        public void setIviQr(ImageView iviQr) {
-            this.iviQr = iviQr;
         }
 
         public TextView getTviExpiracion() {

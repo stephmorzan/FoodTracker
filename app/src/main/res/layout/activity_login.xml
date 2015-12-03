@@ -84,8 +84,6 @@
             android:textColor="@color/ftc_bckgr_editText"
             android:background="@color/blue_pressed"/>
 
-
-
         <com.rey.material.widget.TextView
             android:id="@+id/tviRegistrar"
             android:layout_width="wrap_content"

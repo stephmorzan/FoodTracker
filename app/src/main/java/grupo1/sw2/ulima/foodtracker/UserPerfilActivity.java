@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,13 @@ import com.rey.material.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import grupo1.sw2.ulima.foodtracker.adapters.GustosAdapter;
+import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
+import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
 
 public class UserPerfilActivity extends AppCompatActivity {
 
@@ -25,20 +33,32 @@ public class UserPerfilActivity extends AppCompatActivity {
     @Bind(R.id.ciriviFotoUser)CircleImageView ciriviFotoUser;
     @Bind(R.id.lviMisGustos)ListView lviMisGustos;
 
-    String usuario;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_perfil);
+        FoodTrackerService connector = FoodTrackerConnector.getConnector();
 
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Mi perfil");
 
-        Intent intent = getIntent();
-        usuario = intent.getStringExtra("usuario");
-        tviNombrePerfil.setText(usuario);
+        Call<ClienteResponse> mostrarPerfil = connector.mostrarPerfil(0);
+        mostrarPerfil.enqueue(new Callback<ClienteResponse>() {
+            @Override
+            public void onResponse(Response<ClienteResponse> response) {
+                if (response != null) {
+                    tviNombrePerfil.setText(response.body().getNombres());
+                    lviMisGustos.setAdapter(new GustosAdapter(response.body().getGustos(), UserPerfilActivity.this));
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+
     }
 
     @Override
@@ -55,7 +75,7 @@ public class UserPerfilActivity extends AppCompatActivity {
             case R.id.action_config:
                 Intent intent = new Intent();
                 intent.setClass(UserPerfilActivity.this, ConfigurarPerfilActivity.class);
-                intent.putExtra("usuario", usuario);
+                intent.putExtra("usuario", tviNombrePerfil.getText());
                 startActivity(intent);
         }
 
