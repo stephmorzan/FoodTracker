@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.R;
 
 public class BuscarFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, OnMapReadyCallback {
@@ -30,6 +33,8 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     private LocationRequest locationRequest;
     private GoogleMap googleMap;
     private MapFragment mapFragment;
+
+    @Bind(R.id.rviFoodtrucks)RecyclerView rviFoodtrucks;
 
     public BuscarFragment() {
     }
@@ -69,8 +74,9 @@ public class BuscarFragment extends Fragment implements GoogleApiClient.Connecti
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_buscar, container, false);
-        return view;
+        View layoutBuscar = inflater.inflate(R.layout.fragment_buscar, container, false);
+        ButterKnife.bind(this,layoutBuscar);
+        return layoutBuscar;
     }
 
     @Override

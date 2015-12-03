@@ -72,6 +72,16 @@
         custom:pb_textProgress="Iniciando" />
 
     <com.rey.material.widget.TextView
+        android:id="@+id/tviRegistraMiFtc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registra tu foodtruck"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
+
+    <com.rey.material.widget.TextView
         android:id="@+id/tviNoFtc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

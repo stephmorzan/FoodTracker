@@ -177,6 +177,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent2 = new Intent();
                 intent2.setClass(LoginActivity.this, LoginFoodtruckActivity.class);
                 startActivity(intent2);
+                finish();
                 break;
         }
 

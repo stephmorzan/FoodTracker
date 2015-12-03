@@ -36,10 +36,14 @@ public class LoginFoodtruckActivity extends AppCompatActivity implements View.On
             case R.id.butLoginFtc:
                 String login = eteFtcLogin.getText().toString();
                 String pass = eteFtcPass.getText().toString();
+                intent.setClass(LoginFoodtruckActivity.this, ContenedorAdminFoodtruckActivity.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.tviNoFtc:
                 intent.setClass(LoginFoodtruckActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
     }

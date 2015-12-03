@@ -36,8 +36,6 @@ public class ContenedorActivity extends AppCompatActivity implements View.OnClic
         toolbar.setTitle("FoodTracker");
         setSupportActionBar(toolbar);
 
-
-
         Intent intent = getIntent();
         usuario = intent.getStringExtra("usuario");
 

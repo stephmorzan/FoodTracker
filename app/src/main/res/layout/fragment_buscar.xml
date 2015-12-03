@@ -3,19 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="grupo1.sw2.ulima.foodtracker.fragments.BuscarFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="3">
 
     <FrameLayout
         android:id="@+id/map"
-
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="grupo1.sw2.ulima.foodtracker.ContenedorActivity" />
 
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rviFoodtrucks"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
 
     </android.support.v7.widget.RecyclerView>
 

@@ -43,7 +43,7 @@ public class UserPerfilActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle("Mi perfil");
 
-        Call<ClienteResponse> mostrarPerfil = connector.mostrarPerfil(0);
+        /*Call<ClienteResponse> mostrarPerfil = connector.mostrarPerfil(0);
         mostrarPerfil.enqueue(new Callback<ClienteResponse>() {
             @Override
             public void onResponse(Response<ClienteResponse> response) {
@@ -58,7 +58,7 @@ public class UserPerfilActivity extends AppCompatActivity {
 
             }
         });
-
+*/
     }
 
     @Override
