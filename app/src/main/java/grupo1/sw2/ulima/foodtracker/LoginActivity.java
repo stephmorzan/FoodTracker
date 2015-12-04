@@ -29,6 +29,7 @@ import java.security.NoSuchAlgorithmException;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import grupo1.sw2.ulima.foodtracker.model.ClienteResponse;
+import grupo1.sw2.ulima.foodtracker.model.usuario.UsuarioResponse;
 import grupo1.sw2.ulima.foodtracker.model.usuario.login.LoginRequest;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerConnector;
 import grupo1.sw2.ulima.foodtracker.retrofit.FoodTrackerService;
@@ -91,14 +92,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 final LoginRequest loginRequest = new LoginRequest(usuario, pass);
 
-                Call<ClienteResponse> login = connector.login(loginRequest);
+                Call<UsuarioResponse> login = connector.login(loginRequest);
                 butLogin.setProgress(50);
-                login.enqueue(new Callback<ClienteResponse>() {
+                login.enqueue(new Callback<UsuarioResponse>() {
                     @Override
-                    public void onResponse(Response<ClienteResponse> response) {
-                        if (response.body() != null) {
+                    public void onResponse(Response<UsuarioResponse> response) {
+                        Log.e("tag", response.body() != null ? response.body().toString() : response.errorBody().toString());
+                        if (response.body() == null) {
                             butLogin.setProgress(-1);
-                            Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, response.body().getMsgError(), Toast.LENGTH_SHORT).show();
                         } else {
                             butLogin.setProgress(100);
                             Intent intent = new Intent();

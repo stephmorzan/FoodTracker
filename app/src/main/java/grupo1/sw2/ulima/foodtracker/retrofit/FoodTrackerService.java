@@ -21,7 +21,7 @@ public interface FoodTrackerService {
     //es el llamado a un servicio. De la url /usuario/registro, se envía un UsuarioRequest para recibir un UsuarioResponse.
 
     @POST("/usuario/login")
-    Call<ClienteResponse>login(@Body LoginRequest loginRequest);
+    Call<UsuarioResponse>login(@Body LoginRequest loginRequest);
     //es el llamado a un servicio.
 
     @POST("/login-social")
